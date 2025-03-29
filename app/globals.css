@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-secondary-800 dark:text-secondary-100;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-secondary-900 dark:text-white;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+  }
+  
+  .btn-primary {
+    @apply text-white bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700;
+  }
+  
+  .btn-secondary {
+    @apply text-secondary-900 bg-secondary-100 hover:bg-secondary-200 dark:text-white dark:bg-secondary-800 dark:hover:bg-secondary-700;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+  }
+
+  .nav-link {
+    @apply relative px-3 py-2 text-secondary-600 transition-colors hover:text-primary-500 dark:text-secondary-300 dark:hover:text-primary-400;
+  }
+
+  .nav-link-active {
+    @apply text-primary-500 dark:text-primary-400;
+  }
+
+  .nav-link-active::after {
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 dark:bg-primary-400 content-[''];
+  }
+
+  .card {
+    @apply overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-md dark:bg-dark-700 hover:shadow-lg;
+  }
+}
+
+/* Custom animations */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Hover effect for case study cards */
+.case-study-card {
+  @apply relative overflow-hidden;
+}
+
+.case-study-card::before {
+  content: '';
+  @apply absolute inset-0 z-10 transition-opacity duration-300 bg-gradient-to-t from-black/70 to-transparent opacity-0;
+}
+
+.case-study-card:hover::before {
+  @apply opacity-100;
+}
+
+.case-study-card .case-study-content {
+  @apply absolute bottom-0 left-0 z-20 w-full p-6 transition-all duration-300 translate-y-8 opacity-0;
+}
+
+.case-study-card:hover .case-study-content {
+  @apply translate-y-0 opacity-100;
+}
